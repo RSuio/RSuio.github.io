@@ -1,0 +1,98 @@
+        body {
+            font-family: "Play", sans-serif;
+            line-height: 1.5;
+            margin: 0;
+            padding: 20px;
+            background-color: #000000;
+            color: #333;
+        }
+        img{
+            border: 2px solid #ffffff;
+            border-radius: 500px;
+            max-width: 20%;
+            display: block;
+            margin: 0 auto 20px;
+            
+        }
+        header{
+            font-family: "Zen Dots", sans-serif;
+            text-align: center;
+            color: #ffffff;
+        }
+        .Sobre{
+            font-family: "Zen Dots", sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            width: 40%;
+            margin: 0 auto;
+            height: 200px;
+            color: #ffffff;
+        }
+        .Contato{
+            font-family: "Zen Dots", sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            width: 40%;
+            margin: 0 auto;
+            height: 200px;
+            color: #ffffff;
+        }
+        .Habilidades{
+            font-family: "Zen Dots", sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            width: 40%;
+            margin: 0 auto;
+            color: #ffffff;
+        }
+        .contato{
+            font-family: "Zen Dots", sans-serif;
+            text-align: center;
+            margin: 50px;
+            width: 40%;
+            margin: 0 auto;
+            font-size: 190%;
+            color: #ffffff;
+        }
+        .habilidades{
+            font-family: "Zen Dots", sans-serif;
+            text-align: center;
+            margin: 50px;
+            width: 40%;
+            margin: 0 auto;
+            font-size: 190%;
+            color: #ffffff;
+        }
+        .Projetos{
+            font-family: "Zen Dots", sans-serif;
+            text-align: center;
+            margin: 50px;
+            width: 40%;
+            margin: 0 auto;
+            color: #ffffff;
+        }
+        .projetos{
+            font-family: "Zen Dots", sans-serif;
+            text-align: center;
+            margin: 50px;
+            width: 40%;
+            margin: 0 auto;
+            font-size: 190%;
+            color: #ffffff;
+        }
+        .video{
+            text-align: center;
+            margin: 20px auto;
+            color: #ffffff;
+        }
+        video{
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border: 2px solid #ffffff;
+            border-radius: 10px;
+        }
+        a{
+            color: #61adda;
+        }
+
