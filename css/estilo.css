@@ -1,98 +1,57 @@
-        body {
-            font-family: "Play", sans-serif;
-            line-height: 1.5;
-            margin: 0;
-            padding: 20px;
-            background-color: #000000;
-            color: #333;
-        }
-        img{
-            border: 2px solid #ffffff;
-            border-radius: 500px;
-            max-width: 20%;
-            display: block;
-            margin: 0 auto 20px;
-            
-        }
-        header{
-            font-family: "Zen Dots", sans-serif;
-            text-align: center;
-            color: #ffffff;
-        }
-        .Sobre{
-            font-family: "Zen Dots", sans-serif;
-            text-align: center;
-            margin-top: 50px;
-            width: 40%;
-            margin: 0 auto;
-            height: 200px;
-            color: #ffffff;
-        }
-        .Contato{
-            font-family: "Zen Dots", sans-serif;
-            text-align: center;
-            margin-top: 50px;
-            width: 40%;
-            margin: 0 auto;
-            height: 200px;
-            color: #ffffff;
-        }
-        .Habilidades{
-            font-family: "Zen Dots", sans-serif;
-            text-align: center;
-            margin-top: 50px;
-            width: 40%;
-            margin: 0 auto;
-            color: #ffffff;
-        }
-        .contato{
-            font-family: "Zen Dots", sans-serif;
-            text-align: center;
-            margin: 50px;
-            width: 40%;
-            margin: 0 auto;
-            font-size: 190%;
-            color: #ffffff;
-        }
-        .habilidades{
-            font-family: "Zen Dots", sans-serif;
-            text-align: center;
-            margin: 50px;
-            width: 40%;
-            margin: 0 auto;
-            font-size: 190%;
-            color: #ffffff;
-        }
-        .Projetos{
-            font-family: "Zen Dots", sans-serif;
-            text-align: center;
-            margin: 50px;
-            width: 40%;
-            margin: 0 auto;
-            color: #ffffff;
-        }
-        .projetos{
-            font-family: "Zen Dots", sans-serif;
-            text-align: center;
-            margin: 50px;
-            width: 40%;
-            margin: 0 auto;
-            font-size: 190%;
-            color: #ffffff;
-        }
-        .video{
-            text-align: center;
-            margin: 20px auto;
-            color: #ffffff;
-        }
-        video{
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            border: 2px solid #ffffff;
-            border-radius: 10px;
-        }
-        a{
-            color: #61adda;
-        }
-
+body {
+    font-family: "Play", sans-serif;
+    line-height: 1.5;
+    margin: 0;
+    background-color: #000000;
+    color: #ffffff;
+}
+.navbar {
+    background-color: #000000;
+}
+.navbar-nav .nav-link {
+    font-family: "Zen Dots", sans-serif;
+    color: #61adda;
+}
+.navbar-nav .nav-link:hover {
+    color: #ffffff;
+}
+header {
+    font-family: "Zen Dots", sans-serif;
+}
+.perfil {
+    border: 2px solid #ffffff;
+    border-radius: 500px;
+    max-width: 150px;
+    margin: 0 auto 20px;
+}
+.section {
+    font-family: "Zen Dots", sans-serif;
+}
+.sectiontitulo {
+    font-size: 1.9rem;
+    margin-bottom: 20px;
+}
+.video {
+    max-width: 600px;
+    margin: 20px auto;
+}
+video {
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+}
+.link {
+    color: #61adda;
+    text-decoration: none;
+}
+.link:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+@media (max-width: 576px) {
+    .sectiontitulo {
+        font-size: 1.5rem;
+    }
+    .perfil{
+        max-width: 100px;
+    }
+}
