@@ -1,70 +1,712 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="view" content="width=device-width, initial-scale=1.0">
-    <meta name="descrição" content="Currículo de Bruno De Melo Baumgartner, estudante de Análise e Desenvolvimento de Sistemas.">
-    <meta name="palavraschave" content="Bruno Baumgartner, currículo, desenvolvedor, Python, Java, JavaScript, GitHub Pages">
-    <title>Currículo - Bruno De Melo Baumgartner</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&family=Play&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/estilo.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Bruno Baumgartner — Desenvolvedor Back-End em formação. Estudante de ADS, estagiário no MPT-PE, Python, FastAPI, Kotlin.">
+<title>Bruno Baumgartner — Dev</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<style>
+:root {
+  --bg:        #08080f;
+  --bg2:       #0f0f1a;
+  --bg3:       #161625;
+  --purple:    #6e40c9;
+  --purple-l:  #9b6ef3;
+  --green:     #00e87a;
+  --green-d:   #00b85f;
+  --text:      #e8e8f0;
+  --muted:     #8888a8;
+  --border:    rgba(110,64,201,0.18);
+  --card:      rgba(22,22,37,0.85);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+/* ── NOISE TEXTURE ── */
+body::before{
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:0;opacity:.4;
+}
+
+/* ── GRID BACKGROUND ── */
+body::after{
+  content:'';position:fixed;inset:0;
+  background-image:
+    linear-gradient(rgba(110,64,201,0.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(110,64,201,0.04) 1px,transparent 1px);
+  background-size:60px 60px;
+  pointer-events:none;z-index:0;
+}
+
+/* ── GLOW ORBS ── */
+.orb{
+  position:fixed;border-radius:50%;filter:blur(120px);
+  pointer-events:none;z-index:0;
+}
+.orb1{width:500px;height:500px;background:rgba(110,64,201,0.12);top:-100px;right:-100px;}
+.orb2{width:400px;height:400px;background:rgba(0,232,122,0.07);bottom:-80px;left:-80px;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:18px 5%;
+  display:flex;justify-content:space-between;align-items:center;
+  background:rgba(8,8,15,0.8);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{
+  font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;
+  background:linear-gradient(135deg,var(--purple-l),var(--green));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  letter-spacing:-.02em;
+}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{
+  font-family:'JetBrains Mono',monospace;font-size:.8rem;
+  color:var(--muted);text-decoration:none;
+  transition:color .2s;
+}
+.nav-links a:hover{color:var(--green);}
+.nav-cta{
+  font-family:'JetBrains Mono',monospace;font-size:.8rem;
+  padding:8px 18px;border-radius:8px;
+  border:1px solid var(--purple);
+  color:var(--purple-l);text-decoration:none;
+  transition:all .2s;
+}
+.nav-cta:hover{background:var(--purple);color:#fff;}
+
+/* ── HERO ── */
+#hero{
+  position:relative;z-index:1;
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  justify-content:center;padding:0 5%;
+  padding-top:80px;
+}
+.hero-tag{
+  font-family:'JetBrains Mono',monospace;font-size:.8rem;
+  color:var(--green);margin-bottom:1.5rem;
+  display:flex;align-items:center;gap:8px;
+}
+.hero-tag::before{
+  content:'';width:32px;height:1px;background:var(--green);
+}
+.hero-name{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:clamp(3rem,8vw,7rem);
+  line-height:.95;letter-spacing:-.04em;
+  color:#fff;margin-bottom:.5rem;
+}
+.hero-name span{
+  background:linear-gradient(135deg,var(--purple-l) 0%,var(--green) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero-role{
+  font-family:'JetBrains Mono',monospace;
+  font-size:clamp(.9rem,2vw,1.2rem);
+  color:var(--muted);margin-bottom:2rem;
+}
+.hero-role .cursor{
+  display:inline-block;width:2px;height:1.1em;
+  background:var(--green);margin-left:2px;
+  animation:blink 1s infinite;vertical-align:middle;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.hero-desc{
+  font-size:1rem;color:var(--muted);
+  max-width:500px;line-height:1.7;margin-bottom:2.5rem;
+}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:14px 28px;border-radius:10px;
+  background:linear-gradient(135deg,var(--purple),var(--purple-l));
+  color:#fff;font-weight:500;font-size:.95rem;
+  text-decoration:none;transition:all .25s;
+  box-shadow:0 0 30px rgba(110,64,201,0.3);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 50px rgba(110,64,201,0.5);}
+.btn-outline{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:14px 28px;border-radius:10px;
+  border:1px solid var(--border);
+  color:var(--text);font-size:.95rem;
+  text-decoration:none;transition:all .25s;
+}
+.btn-outline:hover{border-color:var(--green);color:var(--green);}
+.hero-scroll{
+  position:absolute;bottom:2rem;left:5%;
+  display:flex;align-items:center;gap:8px;
+  font-family:'JetBrains Mono',monospace;font-size:.75rem;
+  color:var(--muted);
+}
+.scroll-line{
+  width:40px;height:1px;background:var(--muted);
+  animation:scrollPulse 2s infinite;
+}
+@keyframes scrollPulse{0%,100%{width:20px;opacity:.5}50%{width:60px;opacity:1}}
+
+/* ── SEÇÕES ── */
+section{position:relative;z-index:1;padding:100px 5%;}
+.section-label{
+  font-family:'JetBrains Mono',monospace;font-size:.75rem;
+  color:var(--green);margin-bottom:1rem;
+  display:flex;align-items:center;gap:8px;
+  text-transform:uppercase;letter-spacing:.1em;
+}
+.section-label::before{content:'//  ';}
+.section-title{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:clamp(2rem,4vw,3rem);
+  color:#fff;margin-bottom:1rem;
+  letter-spacing:-.03em;
+}
+.section-line{
+  width:60px;height:3px;
+  background:linear-gradient(90deg,var(--purple),var(--green));
+  border-radius:3px;margin-bottom:3rem;
+}
+
+/* ── SOBRE ── */
+.about-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:4rem;align-items:center;
+}
+.about-img-wrap{position:relative;}
+.about-img{
+  width:100%;max-width:340px;
+  border-radius:20px;
+  border:1px solid var(--border);
+  filter:grayscale(20%);
+  position:relative;z-index:1;
+}
+.about-img-deco{
+  position:absolute;
+  width:100%;max-width:340px;
+  height:100%;top:16px;left:16px;
+  border-radius:20px;
+  border:1px solid rgba(110,64,201,0.3);
+}
+.about-text p{
+  color:var(--muted);line-height:1.8;margin-bottom:1rem;font-size:.97rem;
+}
+.about-text p strong{color:var(--text);}
+.about-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:6px 14px;border-radius:20px;
+  background:rgba(0,232,122,0.08);
+  border:1px solid rgba(0,232,122,0.2);
+  color:var(--green);font-size:.82rem;font-weight:500;
+  margin:0 6px 8px 0;
+}
+.about-badges{margin-top:1.5rem;}
+
+/* ── SKILLS ── */
+#skills{background:var(--bg2);}
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
+  gap:1rem;
+}
+.skill-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;padding:1.2rem 1rem;
+  text-align:center;
+  transition:all .25s;backdrop-filter:blur(8px);
+}
+.skill-card:hover{
+  border-color:var(--purple);
+  transform:translateY(-4px);
+  box-shadow:0 8px 30px rgba(110,64,201,0.2);
+}
+.skill-icon{font-size:1.8rem;margin-bottom:.5rem;}
+.skill-name{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.78rem;color:var(--muted);
+}
+
+/* ── EXPERIÊNCIA ── */
+.exp-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;padding:2rem;
+  backdrop-filter:blur(8px);
+  max-width:700px;
+  display:flex;gap:1.5rem;align-items:flex-start;
+}
+.exp-icon{
+  width:52px;height:52px;border-radius:12px;flex-shrink:0;
+  background:linear-gradient(135deg,var(--purple),var(--purple-l));
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;
+}
+.exp-role{
+  font-family:'Syne',sans-serif;font-weight:700;
+  font-size:1.1rem;color:#fff;margin-bottom:.25rem;
+}
+.exp-company{color:var(--green);font-size:.9rem;margin-bottom:.5rem;}
+.exp-period{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.78rem;color:var(--muted);margin-bottom:.75rem;
+}
+.exp-desc{color:var(--muted);font-size:.9rem;line-height:1.7;}
+
+/* ── PROJETOS ── */
+#projetos{background:var(--bg2);}
+.projects-grid{display:grid;gap:1.5rem;}
+
+/* Card destaque */
+.project-featured{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;padding:2.5rem;
+  backdrop-filter:blur(8px);
+  position:relative;overflow:hidden;
+  transition:border-color .25s;
+}
+.project-featured::before{
+  content:'';position:absolute;top:0;right:0;
+  width:300px;height:300px;
+  background:radial-gradient(circle,rgba(110,64,201,0.15) 0%,transparent 70%);
+  pointer-events:none;
+}
+.project-featured:hover{border-color:var(--purple);}
+.project-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:4px 12px;border-radius:20px;
+  background:rgba(110,64,201,0.15);
+  border:1px solid rgba(110,64,201,0.3);
+  color:var(--purple-l);font-size:.78rem;font-weight:500;
+  margin-bottom:1.2rem;
+}
+.project-title{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:1.8rem;color:#fff;margin-bottom:.75rem;letter-spacing:-.02em;
+}
+.project-desc{
+  color:var(--muted);line-height:1.7;font-size:.95rem;
+  max-width:600px;margin-bottom:1.5rem;
+}
+.project-techs{
+  display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.5rem;
+}
+.tech-tag{
+  font-family:'JetBrains Mono',monospace;font-size:.75rem;
+  padding:4px 10px;border-radius:6px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.08);
+  color:var(--muted);
+}
+.project-features{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:.6rem;margin-bottom:1.5rem;
+}
+.feature{
+  display:flex;align-items:flex-start;gap:8px;
+  font-size:.875rem;color:var(--muted);
+}
+.feature i{color:var(--green);margin-top:2px;flex-shrink:0;}
+.project-links{display:flex;gap:.75rem;}
+.link-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:10px 20px;border-radius:8px;
+  font-size:.875rem;text-decoration:none;
+  transition:all .2s;
+}
+.link-btn.primary{
+  background:var(--purple);color:#fff;
+}
+.link-btn.primary:hover{background:var(--purple-l);}
+.link-btn.ghost{
+  border:1px solid var(--border);color:var(--muted);
+}
+.link-btn.ghost:hover{border-color:var(--green);color:var(--green);}
+
+/* Cards secundários */
+.projects-sub{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;}
+.project-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;padding:1.5rem;
+  backdrop-filter:blur(8px);
+  transition:all .25s;text-decoration:none;
+  display:block;
+}
+.project-card:hover{
+  border-color:var(--purple);
+  transform:translateY(-4px);
+  box-shadow:0 12px 40px rgba(110,64,201,0.15);
+}
+.project-card-icon{font-size:1.5rem;margin-bottom:.75rem;}
+.project-card-title{
+  font-family:'Syne',sans-serif;font-weight:700;
+  font-size:1rem;color:#fff;margin-bottom:.5rem;
+}
+.project-card-desc{font-size:.85rem;color:var(--muted);line-height:1.6;}
+.project-card-footer{
+  margin-top:1rem;display:flex;justify-content:space-between;align-items:center;
+}
+.project-card-tech{
+  font-family:'JetBrains Mono',monospace;font-size:.73rem;color:var(--purple-l);
+}
+
+/* ── CERTIFICAÇÕES ── */
+.certs-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;
+}
+.cert-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;padding:1.2rem;
+  display:flex;align-items:center;gap:1rem;
+  backdrop-filter:blur(8px);
+  transition:border-color .2s;
+}
+.cert-card:hover{border-color:rgba(0,232,122,0.3);}
+.cert-logo{
+  width:42px;height:42px;border-radius:10px;
+  background:rgba(26,160,215,0.15);
+  border:1px solid rgba(26,160,215,0.3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;flex-shrink:0;
+}
+.cert-name{font-size:.875rem;color:var(--text);font-weight:500;}
+.cert-org{font-size:.78rem;color:var(--muted);margin-top:2px;}
+
+/* ── CONTATO ── */
+#contato{background:var(--bg2);}
+.contact-wrap{
+  display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;
+}
+.contact-text p{color:var(--muted);line-height:1.8;margin-bottom:1.5rem;}
+.contact-item{
+  display:flex;align-items:center;gap:1rem;
+  padding:1rem;border-radius:12px;
+  border:1px solid var(--border);
+  background:var(--card);
+  text-decoration:none;color:var(--text);
+  transition:all .2s;margin-bottom:.75rem;
+}
+.contact-item:hover{border-color:var(--purple);color:var(--purple-l);}
+.contact-item i{color:var(--purple-l);width:20px;text-align:center;}
+.contact-item span{font-size:.9rem;}
+
+/* ── FOOTER ── */
+footer{
+  position:relative;z-index:1;
+  text-align:center;padding:2rem;
+  border-top:1px solid var(--border);
+  font-family:'JetBrains Mono',monospace;
+  font-size:.78rem;color:var(--muted);
+}
+footer span{color:var(--purple-l);}
+
+/* ── ANIMAÇÕES ── */
+.reveal{
+  opacity:0;transform:translateY(30px);
+  transition:opacity .7s ease,transform .7s ease;
+}
+.reveal.visible{opacity:1;transform:none;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  nav{padding:14px 4%;}
+  .nav-links{display:none;}
+  #hero{padding:0 4%;padding-top:70px;}
+  .about-grid{grid-template-columns:1fr;}
+  .about-img{max-width:240px;}
+  .contact-wrap{grid-template-columns:1fr;}
+  .project-features{grid-template-columns:1fr;}
+  section{padding:70px 4%;}
+}
+</style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#sobre">Sobre</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contato">Contato</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#habilidades">Habilidades</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#projetos">Projetos</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <header class="text-center py-5">
-        <h1>Bruno De Melo Baumgartner</h1>
-        <h2>Análise e Desenvolvimento de Sistemas</h2>
-        <img src="/img/IMG_20211212_224301_223.jpg" alt="Foto de Bruno De Melo Baumgartner" class="perfil">
-    </header>
-    <div class="container">
-        <section id="sobre" class="section Sobre text-center my-5">
-            <h3 class="sectiontitulo">Sobre</h3>
-            <p>Estudante de Análise e Desenvolvimento de Sistemas com interesse em Inteligência Artificial e Desenvolvimento de Software. Familiaridade com linguagens como Python, Java e JavaScript. Busco oportunidade para aplicar conhecimentos em projetos reais e continuar aprendendo.</p>
-        </section>
-        <section id="contato" class="section Contato text-center my-5">
-            <h3 class="sectiontitulo">Contato</h3>
-            <p>Email: brunodemelobaumgartner@yahoo.com</p>
-            <p><a href="https://www.linkedin.com/in/bruno-de-melo-baumgartner-68988a252" aria-label="Perfil de Bruno De Melo Baumgartner no LinkedIn" class="link">LinkedIn</a></p>
-            <p><a href="https://github.com/RSuio" aria-label="Perfil Bruno De Melo Baumgartner no GitHub" class="link">GitHub</a></p>
-        </section>
-        <section id="habilidades" class="section Habilidades text-center my-5">
-            <h3 class="sectiontitulo">Habilidades</h3>
-            <p>Python - Java - JavaScript - Linux - MySQL - Redes</p>
-        </section>
-        <section id="projetos" class="section Projetos text-center my-5">
-            <h3 class="sectiontitulo">Projetos</h3>
-            <p><a href="https://github.com/RSuio/Sistema-de-Gerenciamento-De-Estacionamento-Universitario" aria-label="Projeto Sistema de Gerenciamento de Estacionamento Universitário" class="link">Sistema de Gerenciamento de Estacionamento Universitário</a></p>
-            <div class="video ratio ratio-16x9">
-                <video controls>
-                    <source src="/video/sistema-de-estacionamento-dashboard-2025-05-30-18-18-23-1_oPpMvSao.mp4" type="video/mp4">
-                    Vídeo demonstrativo do Sistema de Gerenciamento de Estacionamento Universitário.
-                </video>
-            </div>
-        </section>
+
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">rsuio.dev</div>
+  <ul class="nav-links">
+    <li><a href="#sobre">sobre</a></li>
+    <li><a href="#skills">skills</a></li>
+    <li><a href="#projetos">projetos</a></li>
+    <li><a href="#contato">contato</a></li>
+  </ul>
+  <a href="mailto:brunodemelobaumgartner@yahoo.com" class="nav-cta">contato</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-tag">disponível para oportunidades</div>
+  <h1 class="hero-name">Bruno<br><span>Baumgartner</span></h1>
+  <p class="hero-role">
+    <span id="typed"></span><span class="cursor"></span>
+  </p>
+  <p class="hero-desc">
+    Estudante de ADS e estagiário de TI no MPT-PE. Construo APIs REST,
+    sistemas web e mobile com Python, FastAPI e Kotlin.
+    Baseado em Recife, PE.
+  </p>
+  <div class="hero-btns">
+    <a href="#projetos" class="btn-primary">
+      <i class="fa-solid fa-code"></i> Ver projetos
+    </a>
+    <a href="https://linkedin.com/in/bruno-de-melo-baumgartner-68988a252" target="_blank" class="btn-outline">
+      <i class="fa-brands fa-linkedin"></i> LinkedIn
+    </a>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    scroll
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="section-label">sobre mim</div>
+  <h2 class="section-title">Quem sou</h2>
+  <div class="section-line"></div>
+  <div class="about-grid reveal">
+    <div class="about-img-wrap">
+      <img src="img/IMG_20211212_224301_223.jpg" alt="Bruno Baumgartner" class="about-img">
+      <div class="about-img-deco"></div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <div class="about-text">
+      <p>Sou estudante de <strong>Análise e Desenvolvimento de Sistemas</strong> na Faculdade ESUDA (2024–2027), com foco em desenvolvimento back-end e APIs REST.</p>
+      <p>Atualmente estagio no <strong>Ministério Público do Trabalho – MPT-PE</strong>, onde aplico conhecimentos em TI em ambiente profissional real.</p>
+      <p>Tenho certificações pela <strong>Cisco</strong> em Python, Linux e Redes. Desenvolvo projetos completos que conectam back-end, banco de dados, front-end web e mobile.</p>
+      <div class="about-badges">
+        <span class="about-badge"><i class="fa-solid fa-location-dot"></i> Recife, PE</span>
+        <span class="about-badge"><i class="fa-solid fa-graduation-cap"></i> ADS — ESUDA</span>
+        <span class="about-badge"><i class="fa-solid fa-briefcase"></i> MPT-PE</span>
+        <span class="about-badge"><i class="fa-solid fa-circle" style="font-size:.5rem;color:var(--green)"></i> Disponível</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">tecnologias</div>
+  <h2 class="section-title">Skills</h2>
+  <div class="section-line"></div>
+  <div class="skills-grid reveal">
+    <div class="skill-card"><div class="skill-icon">🐍</div><div class="skill-name">Python</div></div>
+    <div class="skill-card"><div class="skill-icon">⚡</div><div class="skill-name">FastAPI</div></div>
+    <div class="skill-card"><div class="skill-icon">☕</div><div class="skill-name">Java</div></div>
+    <div class="skill-card"><div class="skill-icon">🟨</div><div class="skill-name">JavaScript</div></div>
+    <div class="skill-card"><div class="skill-icon">🎯</div><div class="skill-name">Kotlin</div></div>
+    <div class="skill-card"><div class="skill-icon">🗄️</div><div class="skill-name">SQLAlchemy</div></div>
+    <div class="skill-card"><div class="skill-icon">🐬</div><div class="skill-name">MySQL</div></div>
+    <div class="skill-card"><div class="skill-icon">💾</div><div class="skill-name">SQLite</div></div>
+    <div class="skill-card"><div class="skill-icon">🐧</div><div class="skill-name">Linux</div></div>
+    <div class="skill-card"><div class="skill-icon">🌐</div><div class="skill-name">HTML/CSS</div></div>
+    <div class="skill-card"><div class="skill-icon">🔀</div><div class="skill-name">Git</div></div>
+    <div class="skill-card"><div class="skill-icon">🔐</div><div class="skill-name">JWT / Auth</div></div>
+  </div>
+</section>
+
+<!-- EXPERIÊNCIA -->
+<section id="experiencia">
+  <div class="section-label">experiência</div>
+  <h2 class="section-title">Onde trabalhei</h2>
+  <div class="section-line"></div>
+  <div class="exp-card reveal">
+    <div class="exp-icon">⚖️</div>
+    <div>
+      <div class="exp-role">Estagiário de TI</div>
+      <div class="exp-company">Ministério Público do Trabalho — MPT-PE</div>
+      <div class="exp-period">2024 — Presente · Recife, PE</div>
+      <div class="exp-desc">
+        Suporte técnico e manutenção de sistemas internos em ambiente
+        institucional. Contato direto com infraestrutura de TI em
+        órgão federal.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJETOS -->
+<section id="projetos">
+  <div class="section-label">projetos</div>
+  <h2 class="section-title">O que construí</h2>
+  <div class="section-line"></div>
+
+  <div class="projects-grid">
+
+    <!-- DESTAQUE: ForgeFit -->
+    <div class="project-featured reveal">
+      <div class="project-badge"><i class="fa-solid fa-star"></i> Projeto Principal</div>
+      <div class="project-title">🏋️ ForgeFit</div>
+      <p class="project-desc">
+        Sistema completo de gestão de academia digital — elimina o uso de papel
+        e processos manuais. Conecta personal trainers e alunos em uma plataforma
+        unificada com web e mobile.
+      </p>
+      <div class="project-features">
+        <div class="feature"><i class="fa-solid fa-check-circle"></i><span>API REST com FastAPI + JWT</span></div>
+        <div class="feature"><i class="fa-solid fa-check-circle"></i><span>App mobile Kotlin + Jetpack Compose</span></div>
+        <div class="feature"><i class="fa-solid fa-check-circle"></i><span>Padrões Strategy e Template Method</span></div>
+        <div class="feature"><i class="fa-solid fa-check-circle"></i><span>Dashboard de progresso com gráficos</span></div>
+        <div class="feature"><i class="fa-solid fa-check-circle"></i><span>Grade semanal com drag and drop</span></div>
+        <div class="feature"><i class="fa-solid fa-check-circle"></i><span>Testes unitários com pytest</span></div>
+      </div>
+      <div class="project-techs">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">FastAPI</span>
+        <span class="tech-tag">SQLAlchemy</span>
+        <span class="tech-tag">SQLite</span>
+        <span class="tech-tag">JavaScript</span>
+        <span class="tech-tag">Tailwind CSS</span>
+        <span class="tech-tag">Kotlin</span>
+        <span class="tech-tag">Jetpack Compose</span>
+        <span class="tech-tag">JWT</span>
+        <span class="tech-tag">pytest</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/RSuio/Projeto-Academia" target="_blank" class="link-btn primary">
+          <i class="fa-brands fa-github"></i> Ver repositório
+        </a>
+      </div>
+    </div>
+
+    <!-- Outros projetos -->
+    <div class="projects-sub">
+      <a href="https://github.com/RSuio/Sistema-de-Gerenciamento-De-Estacionamento-Universitario" target="_blank" class="project-card reveal">
+        <div class="project-card-icon">🅿️</div>
+        <div class="project-card-title">Estacionamento Universitário</div>
+        <div class="project-card-desc">Sistema de gerenciamento de vagas com dashboard de controle e relatórios.</div>
+        <div class="project-card-footer">
+          <span class="project-card-tech">Python</span>
+          <i class="fa-brands fa-github" style="color:var(--muted)"></i>
+        </div>
+      </a>
+
+      <a href="https://github.com/RSuio/ListaCompras" target="_blank" class="project-card reveal">
+        <div class="project-card-icon">🛒</div>
+        <div class="project-card-title">Lista de Compras</div>
+        <div class="project-card-desc">Aplicação com integração Python e banco de dados MySQL para gerenciar listas.</div>
+        <div class="project-card-footer">
+          <span class="project-card-tech">Python + MySQL</span>
+          <i class="fa-brands fa-github" style="color:var(--muted)"></i>
+        </div>
+      </a>
+
+      <a href="https://site-celebi.vercel.app" target="_blank" class="project-card reveal">
+        <div class="project-card-icon">🌐</div>
+        <div class="project-card-title">Site Celebi</div>
+        <div class="project-card-desc">Site publicado no Vercel com HTML e CSS, focado em design e responsividade.</div>
+        <div class="project-card-footer">
+          <span class="project-card-tech">HTML + CSS</span>
+          <i class="fa-solid fa-arrow-up-right-from-square" style="color:var(--muted)"></i>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- CERTIFICAÇÕES -->
+<section id="certs">
+  <div class="section-label">certificações</div>
+  <h2 class="section-title">Certificados</h2>
+  <div class="section-line"></div>
+  <div class="certs-grid reveal">
+    <div class="cert-card">
+      <div class="cert-logo">🌐</div>
+      <div><div class="cert-name">Python Essentials 1</div><div class="cert-org">Cisco Networking Academy</div></div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-logo">🌐</div>
+      <div><div class="cert-name">Python Essentials 2</div><div class="cert-org">Cisco Networking Academy</div></div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-logo">🐧</div>
+      <div><div class="cert-name">Linux Unhatched</div><div class="cert-org">Cisco Networking Academy</div></div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-logo">📡</div>
+      <div><div class="cert-name">Networking Basics</div><div class="cert-org">Cisco Networking Academy</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="section-label">contato</div>
+  <h2 class="section-title">Vamos conversar</h2>
+  <div class="section-line"></div>
+  <div class="contact-wrap reveal">
+    <div class="contact-text">
+      <p>Estou em busca da minha primeira oportunidade como desenvolvedor, com foco em back-end e aplicações Python. Se você tem um projeto interessante ou uma vaga, me chama!</p>
+      <p>Respondo rápido por e-mail ou LinkedIn.</p>
+    </div>
+    <div>
+      <a href="mailto:brunodemelobaumgartner@yahoo.com" class="contact-item">
+        <i class="fa-solid fa-envelope"></i>
+        <span>brunodemelobaumgartner@yahoo.com</span>
+      </a>
+      <a href="https://linkedin.com/in/bruno-de-melo-baumgartner-68988a252" target="_blank" class="contact-item">
+        <i class="fa-brands fa-linkedin"></i>
+        <span>linkedin.com/in/bruno-de-melo-baumgartner</span>
+      </a>
+      <a href="https://github.com/RSuio" target="_blank" class="contact-item">
+        <i class="fa-brands fa-github"></i>
+        <span>github.com/RSuio</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Feito com <span>♥</span> por Bruno Baumgartner · <span>2025</span>
+</footer>
+
+<script>
+// Typing effect
+const roles = [
+  'Desenvolvedor Back-End',
+  'Estudante de ADS',
+  'Python & FastAPI',
+  'Kotlin & Jetpack Compose',
+];
+let ri = 0, ci = 0, deleting = false;
+const el = document.getElementById('typed');
+function type() {
+  const word = roles[ri];
+  if (!deleting) {
+    el.textContent = word.slice(0, ++ci);
+    if (ci === word.length) { deleting = true; setTimeout(type, 1800); return; }
+  } else {
+    el.textContent = word.slice(0, --ci);
+    if (ci === 0) { deleting = false; ri = (ri + 1) % roles.length; }
+  }
+  setTimeout(type, deleting ? 45 : 80);
+}
+type();
+
+// Scroll reveal
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
